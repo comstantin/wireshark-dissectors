@@ -28,38 +28,38 @@ local field_reserved =          ProtoField.uint8("fdx.reserved", "Reserved", bas
 -- ##############################################
 -- Command 4 Bytes
 -- ##############################################
-local field_command4Bytes_commandSize = ProtoField.uint16("fdx.CommandHeaderCommandSize", "Command Size", base.HEX)
-local field_command4Bytes_commandCode = ProtoField.uint16("fdx.CommandHeaderCommandCode", "Command Code", base.HEX)
+local field_command4Bytes_commandSize = ProtoField.uint16("fdx.CommandFielCommandSize", "Command Size", base.HEX)
+local field_command4Bytes_commandCode = ProtoField.uint16("fdx.CommandFielCommandCode", "Command Code", base.HEX)
 
 -- ##############################################
 -- Command 6 Bytes - 3 Fields
 -- ##############################################
-local field_command6Bytes_commandSize = ProtoField.uint16("fdx.CommandHeaderCommandSize", "Command Size", base.HEX)
-local field_command6Bytes_commandCode = ProtoField.uint16("fdx.CommandHeaderCommandCode", "Command Code", base.HEX)
+local field_command6Bytes_commandSize = ProtoField.uint16("fdx.CommandFielCommandSize", "Command Size", base.HEX)
+local field_command6Bytes_commandCode = ProtoField.uint16("fdx.CommandFielCommandCode", "Command Code", base.HEX)
 local field_command6Bytes_groupID =     ProtoField.uint16("fdx.CommandFieldGroupID", "Group ID", base.DEC)
 
 -- ##############################################
 -- Command 8 Bytes - 3 Fields
 -- ##############################################
-local field_command_8Bytes_3Fields_commandSize = ProtoField.uint16("fdx.CommandHeaderCommandSize", "Command Size", base.HEX)
-local field_command_8Bytes_3Fields_commandCode = ProtoField.uint16("fdx.CommandHeaderCommandCode", "Command Code", base.HEX)
-local field_command_8Bytes_3Fields_canoeKeyCode = ProtoField.uint32("fdx.CommandHeaderCommandCode", "Command Code", base.HEX)
+local field_command_8Bytes_3Fields_commandSize = ProtoField.uint16("fdx.CommandFielCommandSize", "Command Size", base.HEX)
+local field_command_8Bytes_3Fields_commandCode = ProtoField.uint16("fdx.CommandFielCommandCode", "Command Code", base.HEX)
+local field_command_8Bytes_3Fields_canoeKeyCode = ProtoField.uint32("fdx.CommandFielCanoeKeyCode", "Canoe Key Code", base.HEX)
 
 -- ##############################################
 -- Command 8 Bytes - 4 Fields
 -- ##############################################
-local field_command_8Bytes_4Fields_commandSize =    ProtoField.uint16("fdx.CommandHeaderCommandSize", "Command Size", base.HEX)
-local field_command_8Bytes_4Fields_commandCode =    ProtoField.uint16("fdx.CommandHeaderCommandCode", "Command Code", base.HEX)
-local field_command_8Bytes_4Fields_groupID =        ProtoField.uint16("fdx.CommandHeaderCommandCode", "Command Code", base.HEX)
-local field_command_8Bytes_4Fields_dataErrorCode =  ProtoField.uint16("fdx.CommandHeaderCommandCode", "Command Code", base.HEX)
-local field_command_8Bytes_4Fields_receivedSeqNr =  ProtoField.uint16("fdx.CommandHeaderCommandCode", "Command Code", base.HEX)
-local field_command_8Bytes_4Fields_expectedSeqNr =  ProtoField.uint16("fdx.CommandHeaderCommandCode", "Command Code", base.HEX)
+local field_command_8Bytes_4Fields_commandSize =    ProtoField.uint16("fdx.CommandFielCommandSize", "Command Size", base.HEX)
+local field_command_8Bytes_4Fields_commandCode =    ProtoField.uint16("fdx.CommandFielCommandCode", "Command Code", base.HEX)
+local field_command_8Bytes_4Fields_groupID =        ProtoField.uint16("fdx.CommandFieldGroupID", "Group ID", base.HEX)
+local field_command_8Bytes_4Fields_dataErrorCode =  ProtoField.uint16("fdx.CommandFielDataErrorCode", "Data Error Code", base.HEX)
+local field_command_8Bytes_4Fields_receivedSeqNr =  ProtoField.uint16("fdx.CommandFielReceivedSeqNr", "Received Sequence Number", base.HEX)
+local field_command_8Bytes_4Fields_expectedSeqNr =  ProtoField.uint16("fdx.CommandFielExpectedSeqNr", "Expected Sequence Number", base.HEX)
 
 -- ##############################################
 -- Command 8 Bytes + DataSize - 5 Fields
 -- ##############################################
-local field_command_8Bytes_5Fields_commandSize = ProtoField.uint16("fdx.CommandHeaderCommandSize", "Command Size", base.HEX)
-local field_command_8Bytes_5Fields_commandCode = ProtoField.uint16("fdx.CommandHeaderCommandCode", "Command Code", base.HEX)
+local field_command_8Bytes_5Fields_commandSize = ProtoField.uint16("fdx.CommandFielCommandSize", "Command Size", base.HEX)
+local field_command_8Bytes_5Fields_commandCode = ProtoField.uint16("fdx.CommandFielCommandCode", "Command Code", base.HEX)
 local field_command_8Bytes_5Fields_groupID =     ProtoField.uint16("fdx.CommandFieldGroupID", "Group ID", base.HEX)
 local field_command_8Bytes_5Fields_dataSize =    ProtoField.uint16("fdx.CommandFieldDataSize", "Data Size", base.HEX)
 local field_command_8Bytes_5Fields_dataBytes =   ProtoField.uint8("fdx.CommandFielddDataBytes", "Data Bytes", base.HEX)
@@ -67,8 +67,8 @@ local field_command_8Bytes_5Fields_dataBytes =   ProtoField.uint8("fdx.CommandFi
 -- ##############################################
 -- Command 16 Bytes - 5 Fields
 -- ##############################################
-local field_command_16Bytes_5Fields_commandSize =       ProtoField.uint16("fdx.CommandHeaderCommandSize", "Command Size", base.HEX)
-local field_command_16Bytes_5Fields_commandCode =       ProtoField.uint16("fdx.CommandHeaderCommandCode", "Command Code", base.HEX)
+local field_command_16Bytes_5Fields_commandSize =       ProtoField.uint16("fdx.CommandSize", "Command Size", base.HEX)
+local field_command_16Bytes_5Fields_commandCode =       ProtoField.uint16("fdx.CommandCode", "Command Code", base.HEX)
 local field_command_16Bytes_5Fields_measurementState =  ProtoField.uint8("fdx.CommandFieldMeasurementState", "Measurement State", base.HEX)
 local field_command_16Bytes_5Fields_reserved_bytes =    ProtoField.uint24("fdx.CommandFieldReserved_bytes", "Reserved Bytes", base.HEX)
 local field_command_16Bytes_5Fields_timestamps =        ProtoField.absolute_time("fdx.CommandFieldTimestamps", "Time Stamps", base.ABSOLUTE_TIME) -- hex does not work for INT
@@ -185,7 +185,7 @@ function proto_fdx.dissector(buffer, pinfo, tree)
     local numberOfCommands_buffer = buffer(numberOfCommands_pos, numberOfCommands_len)
     headerSubtree:add(field_numberOfCommands, numberOfCommands_buffer, numberOfCommands_buffer:le_uint())
 
-    -- Sequience Number
+    -- Sequence Number
     local seqNrOrDgramLen_pos = numberOfCommands_pos + numberOfCommands_len
     local seqNrOrDgramLen_len = 2
     local seqNrOrDgramLen_buffer = buffer(seqNrOrDgramLen_pos, seqNrOrDgramLen_len)
