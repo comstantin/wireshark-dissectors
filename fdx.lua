@@ -236,7 +236,7 @@ function proto_fdx.dissector(buffer, pinfo, tree)
         command_code = buffer(command_offset+2, 2):le_uint()
         command_name = "[" .. commands[command_code] .. "]"
         -- Process the remaining fields in the command based on the command code
-        if command_code == 0x0001 or command_code == 0x0200 or command_code == 0x0A00 then 
+        if command_code == 0x0001 or command_code == 0x0002 or command_code == 0x000A then 
             -- Command Size 4 Bytes (Start, Stop and Status Request)
             payloadSubtree:add(generated_fdx_command, command_name)
             payloadSubtree:add(field_command4Bytes_commandSize, command_size)
